@@ -1,8 +1,17 @@
+// Libraries
 import { Pressable, Text, View } from 'react-native';
-import { Link } from 'expo-router';
+import { Link, Redirect } from 'expo-router';
+
+/*
+ * Page
+ */
 
 export default function Page() {
-  return (
+  const isLoggedIn = false;
+
+  return !isLoggedIn ? (
+    <Redirect href='/users/signup' />
+  ) : (
     <View>
       <Link href='/about' asChild>
         <Pressable>
